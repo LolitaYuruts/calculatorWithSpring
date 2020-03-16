@@ -1,6 +1,9 @@
 package config;
 
+import bean.api.Calculator;
+import bean.api.ConsoleReader;
 import bean.impl.CalculatorImpl;
+import bean.impl.ConsoleReaderImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +11,12 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
     @Bean
-    public CalculatorImpl getCalculatorBean() {
-        return new CalculatorImpl();
+    public Calculator calculatorBean() {
+        return new CalculatorImpl(consoleReaderBean());
+    }
+
+    @Bean
+    public ConsoleReader consoleReaderBean() {
+        return new ConsoleReaderImpl();
     }
 }
