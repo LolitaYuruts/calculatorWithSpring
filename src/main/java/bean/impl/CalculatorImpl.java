@@ -14,7 +14,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public double calculate(double a, double b, char operation) {
-        log.info("It's the beginning of the method 'count'");
+        log.info("It's the beginning of the method 'calculate'");
         double result = 0;
         switch (operation) {
             case '+':
@@ -36,7 +36,7 @@ public class CalculatorImpl implements Calculator {
                 System.out.println("Unknown operation. You can choose '+', '-', '*' or '/'. Retry please");
                 result = calculate(a, b, consoleReader.getOperation());
         }
-        log.info("It's the end of the method 'count'");
+        log.info("It's the end of the method 'calculate'");
         return result;
     }
 }
