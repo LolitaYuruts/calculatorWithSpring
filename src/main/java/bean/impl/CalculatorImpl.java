@@ -1,20 +1,20 @@
 package bean.impl;
 
+import aop.LogAnnotation;
 import bean.api.Calculator;
 import bean.api.ConsoleReader;
 import org.apache.log4j.Logger;
 
 public class CalculatorImpl implements Calculator {
-    private static final Logger log = Logger.getLogger(CalculatorImpl.class);
     ConsoleReader consoleReader;
 
     public CalculatorImpl (ConsoleReader consoleReader){
         this.consoleReader = consoleReader;
     }
 
+    @LogAnnotation
     @Override
     public double calculate(double a, double b, char operation) {
-        log.info("It's the beginning of the method 'calculate'");
         double result = 0;
         switch (operation) {
             case '+':
@@ -36,7 +36,6 @@ public class CalculatorImpl implements Calculator {
                 System.out.println("Unknown operation. You can choose '+', '-', '*' or '/'. Retry please");
                 result = calculate(a, b, consoleReader.getOperation());
         }
-        log.info("It's the end of the method 'calculate'");
         return result;
     }
 }

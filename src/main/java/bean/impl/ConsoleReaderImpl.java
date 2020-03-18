@@ -1,10 +1,12 @@
 package bean.impl;
 
+import aop.LogAnnotation;
 import bean.api.ConsoleReader;
 
 import java.util.Scanner;
 
 public class ConsoleReaderImpl implements ConsoleReader {
+    @LogAnnotation
     @Override
     public double getNumber() {
         double number = 0;
@@ -14,12 +16,12 @@ public class ConsoleReaderImpl implements ConsoleReader {
             number = scanner.nextDouble();
         } else {
             System.out.println("You have to enter a number. Retry please");
-            scanner.next();
             number = getNumber();
         }
         return number;
     }
 
+    @LogAnnotation
     @Override
     public char getOperation() {
         char operation = 0;
